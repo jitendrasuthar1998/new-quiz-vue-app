@@ -33,6 +33,11 @@ export default {
     currentQuestion: Object,
     next: Function,
   },
+  data(){
+return{
+  selectedIndex: null
+}
+  },
   computed: {
     answers() {
       console.log("currentQuestion is", this.currentQuestion);
@@ -44,7 +49,9 @@ export default {
   },
   methods:{
 selectAnswer(index){
-  console.log('index of this answer is', index)
+  this.selectedIndex = index;
+  console.log('selectedIndex of answer of is', this.selectedIndex);
+ // console.log('index of this answer is', index)
 }
   },
   mounted() {

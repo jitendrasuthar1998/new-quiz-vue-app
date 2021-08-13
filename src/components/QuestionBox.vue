@@ -71,6 +71,11 @@ selectAnswer(index){
   margin-bottom: 20px;
   font-size: 20px;
 }
+
+.list-group-item:hover{
+ background: #EEE;
+cursor: pointer;
+}
 .btn{
   margin: 10px;
 }

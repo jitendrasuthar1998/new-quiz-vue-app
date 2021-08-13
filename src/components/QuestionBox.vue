@@ -47,18 +47,16 @@ export default {
 </script>
 
 <style scoped>
-.list-group{
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-.btn{
-  margin: 10px;
-}
-
 .lead{
   margin: 10px;
   margin-top: 30px;
   font-size: 30px;
+}
+.list-group{
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.btn{
+  margin: 10px;
 }
 </style>

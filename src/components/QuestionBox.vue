@@ -9,7 +9,9 @@
         <hr class="my-4" />
 
         <b-list-group>
-          <b-list-group-item v-for="(answer, index) in answers" :key="index">{{
+          <b-list-group-item v-for="(answer, index) in answers" :key="index"
+          @click="selectAnswer(index)"
+          >{{
             answer
           }}</b-list-group-item>
         </b-list-group>
@@ -40,6 +42,11 @@ export default {
       return answers;
     },
   },
+  methods:{
+selectAnswer(index){
+  console.log('index of this answer is', index)
+}
+  },
   mounted() {
     console.log(this.currentQuestion);
   },
@@ -47,6 +54,7 @@ export default {
 </script>
 
 <style scoped>
+
 .lead{
   margin: 10px;
   margin-top: 30px;

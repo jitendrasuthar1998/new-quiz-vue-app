@@ -10,7 +10,8 @@
 
         <b-list-group>
           <b-list-group-item v-for="(answer, index) in answers" :key="index"
-          @click="selectAnswer(index)"
+          @click.prevent="selectAnswer(index)"
+          :class="[selectedIndex === index ? 'selected' : null]"
           >{{
             answer
           }}</b-list-group-item>
@@ -78,5 +79,17 @@ cursor: pointer;
 }
 .btn{
   margin: 10px;
+}
+
+.selected{
+  background-color: lightblue;
+}
+
+.correct{
+  background-color: lightgreen;
+}
+
+.incorrect{
+  background-color: red;
 }
 </style>

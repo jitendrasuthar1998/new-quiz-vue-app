@@ -62,9 +62,5 @@ this.questions = jsonData.results
 
 .row{
   background-color: aliceblue;
-  align-content: center;
-  align-self: center;
-  align-items: center;
-  text-align: center;
 }
 </style>

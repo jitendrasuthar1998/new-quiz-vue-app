@@ -13,7 +13,7 @@
             v-for="(answer, index) in answers"
             :key="index"
             @click.prevent="selectAnswer(index)"
-            :class="[selectedIndex === index ? 'selected' : null]"
+            :class="answerClass(index)"
             >{{ answer }}</b-list-group-item
           >
         </b-list-group>
@@ -43,7 +43,7 @@ export default {
       selectedIndex: null,
       shuffledAnswers: [],
       correctIndex: null,
-      answered: false
+      answered: false,
     };
   },
   computed: {
@@ -61,7 +61,7 @@ export default {
       handler() {
         this.selectedIndex = null;
         this.shuffleAnswers();
-        this.answered = false
+        this.answered = false;
       },
     },
   },
@@ -77,7 +77,9 @@ export default {
         this.currentQuestion.correct_answer,
       ];
       this.shuffledAnswers = _.shuffle(answers);
-    this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)
+      this.correctIndex = this.shuffledAnswers.indexOf(
+        this.currentQuestion.correct_answer
+      );
     },
     submitAnswer() {
       let isCorrect = false;
@@ -85,8 +87,25 @@ export default {
       if (this.selectedIndex === this.correctIndex) {
         isCorrect = true;
       }
-      this.answered = true
+      this.answered = true;
       this.increment(isCorrect);
+    },
+    answerClass(index) {
+      let answerClass = "";
+
+      if (!this.answered && this.selectedIndex === index) {
+        answerClass = "selected";
+      }
+
+      else if (this.answered && this.correctIndex === index) {
+        answerClass = "correct";
+      }
+
+      else if (this.answered && this.selectedIndex === index && this.correctIndex !== index) {
+        answerClass = "incorrect";
+      }
+
+      return answerClass;
     },
   },
   mounted() {

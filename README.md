@@ -5,6 +5,10 @@ The questions in this application are comming from an api.
 
 To style this application's view, i have used BootStrapVue.
 
+This project has been completed on 15-08-2021.
+
+Well done, Jitu bhai.
+
 
 ## Project setup
 ```

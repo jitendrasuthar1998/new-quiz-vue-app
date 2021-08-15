@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import _ from 'lodash';
+import _ from "lodash";
 export default {
   props: {
     currentQuestion: Object,
@@ -48,9 +48,12 @@ export default {
     },
   },
   watch: {
-    currentQuestion() {
-      this.selectedIndex = null;
-      this.shuffleAnswers();
+    currentQuestion: {
+      immediate: true,
+      handler() {
+        this.selectedIndex = null;
+        this.shuffleAnswers();
+      },
     },
   },
   methods: {
@@ -60,10 +63,16 @@ export default {
       // console.log('index of this answer is', index)
     },
     shuffleAnswers() {
-      let answers = [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer];
-      this.shuffledAnswers = _.shuffle(answers)
-    }
-  }
+      let answers = [
+        ...this.currentQuestion.incorrect_answers,
+        this.currentQuestion.correct_answer,
+      ];
+      this.shuffledAnswers = _.shuffle(answers);
+    },
+  },
+  mounted() {
+    this.shuffleAnswers();
+  },
 };
 </script>
 
